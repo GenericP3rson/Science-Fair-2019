@@ -1,10 +1,4 @@
-'''
-Created on Oct 25, 2011
-Modified on Oct 31, 2012
-Modified on Mar 4, 2017 by Susan Rodger
 
-@author: rcd, alexandrudutu, ola
-'''
 from PIL import Image
 from PIL import ImageFilter
 import math
