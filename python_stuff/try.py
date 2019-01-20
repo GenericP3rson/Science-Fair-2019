@@ -73,31 +73,39 @@ def kernel(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_
 kernel(Rval, 3, 3)
 
 
-# def max_pooling(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_move_height=10):
-#     '''
-#     The idea behind this function is to take a kernel and do max pooling. 
-#     If we do do it with the tuple, we could find the maximum red value then find a threshold value.
-#     '''
-#     i = 0
-#     # kernel_width = 3
-#     # kernel_height = 3
-#     print(x, y)
-#     while i < x:
-#         j = 0
-#         while j < y:
-#             # So this will iterate over each set of the points we need. Next we'll have to get those values.
-#             pts = []
-#             for k in range(kernel_height):
-#                 for l in range(kernel_width):
-#                     # So now we've managed to look at every pixel kernel_height by kernel_width at a time.
-#                     try:
-#                         pts.append(img[i+k][j+l])
-#                         # print(i+k, j+l)
-#                     except:
-#                         pass
-#             print(find_max(pts))
-#             j = j+kernel_move_width
-#         i = i+kernel_move_height
+def max_pooling(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_move_height=10):
+    '''
+    The idea behind this function is to take a kernel and do max pooling. 
+    If we do do it with the tuple, we could find the maximum red value then find a threshold value.
+    '''
+    i = 0
+    # kernel_width = 3
+    # kernel_height = 3
+    print(x, y)
+    while i < x:
+        j = 0
+        while j < y:
+            # So this will iterate over each set of the points we need. Next we'll have to get those values.
+            pts = []
+            for k in range(kernel_height):
+                for l in range(kernel_width):
+                    # So now we've managed to look at every pixel kernel_height by kernel_width at a time.
+                    try:
+                        pts.append(img[i+k][j+l])
+                        # print(i+k, j+l)
+                    except:
+                        pass
+            print(find_max(pts))
+            j = j+kernel_move_width
+        i = i+kernel_move_height
 
 
-# max_pooling(Rval, 3, 3)
+max_pooling(Rval, 3, 3)
+
+def find_circles():
+    '''
+    So for this one, we need to try to find circles, to identify things such as moles, pimples, etc.
+    In short, there are a lots of different types of circles on the human body, so it's important to find them.
+    What we're planning to do is to find just circles in black and white. After that, we can identify other things.
+    '''
+# Or I could just CNN everything?
