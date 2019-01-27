@@ -1,0 +1,1015 @@
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @898
+TRY #899
+---------------------------------
+Run id: G2RTD8
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @899
+TRY #900
+---------------------------------
+Run id: 327FPX
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @900
+TRY #901
+---------------------------------
+Run id: IDHVNC
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @901
+TRY #902
+---------------------------------
+Run id: LZV5RR
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @902
+TRY #903
+---------------------------------
+Run id: WYVSZR
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @903
+TRY #904
+---------------------------------
+Run id: V6T087
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @904
+TRY #905
+---------------------------------
+Run id: WEP1Y4
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @905
+TRY #906
+---------------------------------
+Run id: PMYR62
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @906
+TRY #907
+---------------------------------
+Run id: N54Z44
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @907
+TRY #908
+---------------------------------
+Run id: 2YAMAW
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @908
+TRY #909
+---------------------------------
+Run id: LULGXY
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @909
+TRY #910
+---------------------------------
+Run id: GU1L8S
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @910
+TRY #911
+---------------------------------
+Run id: 1XSQK4
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @911
+TRY #912
+---------------------------------
+Run id: 16P3TI
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @912
+TRY #913
+---------------------------------
+Run id: YM3YAA
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @913
+TRY #914
+---------------------------------
+Run id: TQPM63
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @914
+TRY #915
+---------------------------------
+Run id: WLFV43
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @915
+TRY #916
+---------------------------------
+Run id: CMRF05
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @916
+TRY #917
+---------------------------------
+Run id: 2VKAL0
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @917
+TRY #918
+---------------------------------
+Run id: UFRC80
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @918
+TRY #919
+---------------------------------
+Run id: 58KU80
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @919
+TRY #920
+---------------------------------
+Run id: 7VUYI7
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @920
+TRY #921
+---------------------------------
+Run id: I658G4
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @921
+TRY #922
+---------------------------------
+Run id: TODWJ1
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @922
+TRY #923
+---------------------------------
+Run id: NKI4J5
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @923
+TRY #924
+---------------------------------
+Run id: 9OUWTR
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @924
+TRY #925
+---------------------------------
+Run id: WX1JGK
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @925
+TRY #926
+---------------------------------
+Run id: 7EQI0V
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @926
+TRY #927
+---------------------------------
+Run id: CZAZN2
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @927
+TRY #928
+---------------------------------
+Run id: 6KDTGU
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @928
+TRY #929
+---------------------------------
+Run id: 8SG4TS
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @929
+TRY #930
+---------------------------------
+Run id: 1QZFK2
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @930
+TRY #931
+---------------------------------
+Run id: SQOSB9
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @931
+TRY #932
+---------------------------------
+Run id: EMIY6R
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @932
+TRY #933
+---------------------------------
+Run id: OHJMOZ
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @933
+TRY #934
+---------------------------------
+Run id: GGZVDR
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @934
+TRY #935
+---------------------------------
+Run id: AII7K3
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @935
+TRY #936
+---------------------------------
+Run id: MIVNV8
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @936
+TRY #937
+---------------------------------
+Run id: 7EDGSU
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @937
+TRY #938
+---------------------------------
+Run id: 4GYYQV
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @938
+TRY #939
+---------------------------------
+Run id: 3W6O1H
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @939
+TRY #940
+---------------------------------
+Run id: PGDUU6
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @940
+TRY #941
+---------------------------------
+Run id: HGWF85
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @941
+TRY #942
+---------------------------------
+Run id: 3WXP5E
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @942
+TRY #943
+---------------------------------
+Run id: XCUJRL
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @943
+TRY #944
+---------------------------------
+Run id: OIFMVL
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @944
+TRY #945
+---------------------------------
+Run id: SNH5K1
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @945
+TRY #946
+---------------------------------
+Run id: ZL6MAY
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @946
+TRY #947
+---------------------------------
+Run id: 6MZN4L
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @947
+TRY #948
+---------------------------------
+Run id: CZDH3U
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @948
+TRY #949
+---------------------------------
+Run id: K7YG9P
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @949
+TRY #950
+---------------------------------
+Run id: PTVNRZ
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @950
+TRY #951
+---------------------------------
+Run id: SZU6TF
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @951
+TRY #952
+---------------------------------
+Run id: Z1881O
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @952
+TRY #953
+---------------------------------
+Run id: OC4U1N
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @953
+TRY #954
+---------------------------------
+Run id: 1WVGWE
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @954
+TRY #955
+---------------------------------
+Run id: 61MS1M
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @955
+TRY #956
+---------------------------------
+Run id: 5Q7KNR
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @956
+TRY #957
+---------------------------------
+Run id: 06H4L2
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @957
+TRY #958
+---------------------------------
+Run id: R6118O
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @958
+TRY #959
+---------------------------------
+Run id: OJKMIE
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @959
+TRY #960
+---------------------------------
+Run id: 7R2ECE
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @960
+TRY #961
+---------------------------------
+Run id: DD93IX
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @961
+TRY #962
+---------------------------------
+Run id: 1KLAAO
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @962
+TRY #963
+---------------------------------
+Run id: 3DFMV6
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @963
+TRY #964
+---------------------------------
+Run id: Z83QP0
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @964
+TRY #965
+---------------------------------
+Run id: 5YFWIM
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @965
+TRY #966
+---------------------------------
+Run id: RMV379
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @966
+TRY #967
+---------------------------------
+Run id: NX4D7J
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @967
+TRY #968
+---------------------------------
+Run id: J5ZGQB
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @968
+TRY #969
+---------------------------------
+Run id: V8NEDT
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @969
+TRY #970
+---------------------------------
+Run id: U2RSK8
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @970
+TRY #971
+---------------------------------
+Run id: AQUPBC
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @971
+TRY #972
+---------------------------------
+Run id: HFPI6V
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @972
+TRY #973
+---------------------------------
+Run id: 4CYUTO
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @973
+TRY #974
+---------------------------------
+Run id: 7ZMVUW
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @974
+TRY #975
+---------------------------------
+Run id: SJHLK8
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @975
+TRY #976
+---------------------------------
+Run id: E9CXE8
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @976
+TRY #977
+---------------------------------
+Run id: JSYQF4
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @977
+TRY #978
+---------------------------------
+Run id: 5RICC8
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @978
+TRY #979
+---------------------------------
+Run id: 3BATUG
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @979
+TRY #980
+---------------------------------
+Run id: LKSXGP
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @980
+TRY #981
+---------------------------------
+Run id: YT4ZFD
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @981
+TRY #982
+---------------------------------
+Run id: G1B83X
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @982
+TRY #983
+---------------------------------
+Run id: 5NOEDW
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @983
+TRY #984
+---------------------------------
+Run id: JE7N43
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @984
+TRY #985
+---------------------------------
+Run id: G3H95A
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @985
+TRY #986
+---------------------------------
+Run id: JY7CQ4
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @986
+TRY #987
+---------------------------------
+Run id: WS4J19
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @987
+TRY #988
+---------------------------------
+Run id: 0GFMWM
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @988
+TRY #989
+---------------------------------
+Run id: OT0CAK
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @989
+TRY #990
+---------------------------------
+Run id: XJRW7A
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @990
+TRY #991
+---------------------------------
+Run id: BBWOQ5
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @991
+TRY #992
+---------------------------------
+Run id: 2RTBKB
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @992
+TRY #993
+---------------------------------
+Run id: S3G6OD
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @993
+TRY #994
+---------------------------------
+Run id: 2ZH088
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @994
+TRY #995
+---------------------------------
+Run id: 2OVKX9
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @995
+TRY #996
+---------------------------------
+Run id: CZBUDG
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @996
+TRY #997
+---------------------------------
+Run id: RKQO1Q
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @997
+TRY #998
+---------------------------------
+Run id: KAV5J7
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @998
+TRY #999
+---------------------------------
+Run id: B9H0XN
+Log directory: /tmp/tflearn_logs/
+---------------------------------
+Training samples: 90
+Validation samples: 0
+--
+--
+FAIL @99
