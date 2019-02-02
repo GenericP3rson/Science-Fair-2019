@@ -1,0 +1,21 @@
+We have a functional CNN (tfl3.py).
+Now we need to make a decision tree (easy).
+Also, we need to somehow get training data for the things.
+(Maybe we could also make it a Google Assistant for fun...?)
+
+We need to determine what the training data should be.
+
+
+
+RUNS:
+1) Redness (w/ kernel)
+2) Bumps (w/ CNN)
+3) Scaly (w/ CNN)
+
+TO CHECK:
+1) Eczema (maybe also psoriasis?) (w/ RUNS)
+2) Ringworm (w/ CNN + Redness)
+3) Melanoma
+
+PROCESS:
+1) It looks through the body part
