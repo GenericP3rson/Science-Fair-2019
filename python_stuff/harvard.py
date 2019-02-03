@@ -38,10 +38,10 @@ dataset = open_and_random("harvard/HAM10000_metadata.csv")
 # print(stuff.loc[0]["image_id"])
 # Two ways to access: stuff.loc[][] or stuff.iloc[][]
 # print(np.asarray(stuff.loc[:, "image_id"]))
-data_limit_low = 1075
-data_limit_mid1 = 1125
-data_limit_mid2 = 1125
-data_limit_hi = 1150
+data_limit_low = 0
+data_limit_mid1 = 100
+data_limit_mid2 = 100
+data_limit_hi = 150
 data = list(dataset.loc[:, "image_id"])  # Images in a list
 image_list = data[data_limit_low:data_limit_mid1]
 test_images = data[data_limit_mid2:data_limit_hi]
@@ -107,7 +107,7 @@ def convert_data(image_list):
     # fout = open("cancer_photos.txt", "w")
     all_pixels = []
     for image_name in image_list:
-        image = Image.open("harvard/full_set/" + image_name + ".jpg")
+        image = Image.open("harvard/mini_set/" + image_name + ".jpg")
         # print(str(image.size) + " = " + str(len(image.getdata())) + " total pixels.")
         # print(image.convert("RGB"))
         # print(list(image.getdata()))
@@ -130,34 +130,33 @@ all_pixels = convert_data(image_list)
 test_pixel = convert_data(test_images)
 
 
-all_pixels = all_pixels.reshape([-1, 600, 450, 3])
+all_pixels = all_pixels.reshape([-1, 150, 150, 3])
 
-net = input_data(shape=[None, 600, 450, 3], name='input')
+net = input_data(shape=[None, 150, 150, 3], name='input')
 
-net = conv_2d(net, 100, 2, activation='relu')
+net = conv_2d(net, 50, 2, activation='relu')
 net = max_pool_2d(net, 10)
 
 net = conv_2d(net, 200, 2, activation='relu')
 net = max_pool_2d(net, 10)
 
-net = fully_connected(net, 1000, activation='relu')
-net = dropout(net, 0.5)
+net = fully_connected(net, 500, activation='relu')
+net = dropout(net, 0.75)
 
 net = fully_connected(net, 7, activation='softmax')
 net = regression(net, optimizer='adam', learning_rate=0.001,
                  loss='categorical_crossentropy', name='targets')
 
 model = tflearn.DNN(net)
-
+'''
 # Run this to train the data
-model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=10, validation_set=({'input': test_pixel}, {'targets': test_labels}),
+model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=25, validation_set=({'input': test_pixel}, {'targets': test_labels}),
           snapshot_step=500, show_metric=True, run_id='cancer')
 
 model.save("cancer.model")
-
 '''
+
 # Run this to check the data
 model.load('cancer.model')
-print((model.predict([test_pixel[7]])[0]))
-print(test_labels[7])
-'''
+print((model.predict([test_pixel[0]])[0]))
+print(test_labels[0])
