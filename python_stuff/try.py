@@ -79,10 +79,11 @@ def kernel(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_
         i = i+kernel_move_height  
     return full
 
-data = kernel(allval, 150, 150, 100, 100)[0]
-im = Image.new("RGB", (150, 150))
-im.putdata(data)
-im.save("pix.png")
+data = kernel(allval, 150, 150, 100, 100)
+for i in range(len(data)):
+    im = Image.new("RGB", (150, 150))
+    im.putdata(data[i])
+    im.save("pix" + str(i) + ".png")
 
 
 def max_pooling(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_move_height=10):

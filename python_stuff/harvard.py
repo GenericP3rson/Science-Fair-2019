@@ -39,9 +39,9 @@ dataset = open_and_random("harvard/HAM10000_metadata.csv")
 # Two ways to access: stuff.loc[][] or stuff.iloc[][]
 # print(np.asarray(stuff.loc[:, "image_id"]))
 data_limit_low = 0
-data_limit_mid1 = 5000
-data_limit_mid2 = 5000
-data_limit_hi = 6000
+data_limit_mid1 = 10000
+data_limit_mid2 = 10000
+data_limit_hi = 10015
 data = list(dataset.loc[:, "image_id"])  # Images in a list
 image_list = data[data_limit_low:data_limit_mid1]
 test_images = data[data_limit_mid2:data_limit_hi]
@@ -148,13 +148,13 @@ net = regression(net, optimizer='adam', learning_rate=0.001,
                  loss='categorical_crossentropy', name='targets')
 
 model = tflearn.DNN(net)
-'''
-# Run this to train the data
-model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=5, validation_set=({'input': test_pixel}, {'targets': test_labels}),
-          snapshot_step=500, show_metric=True, run_id='cancer')
 
+# Run this to train the data
+model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=100, validation_set=({'input': test_pixel}, {'targets': test_labels}),
+          snapshot_step=500, show_metric=True, run_id='cancer')
 model.save("cancer.model")
-'''
+
+
 # Run this to check the data
 model.load('cancer.model')
 print((model.predict([test_pixel[0]])[0]))
