@@ -112,7 +112,7 @@ def convert_data(image_list):
         # print(image.convert("RGB"))
         # print(list(image.getdata()))
         # We have a list of the rgb values
-        RGBvalues = list(i[0:3] for i in image.getdata())
+        RGBvalues = list((i[0]/255, i[1]/255, i[2]/255) for i in image.getdata())
         # print(RGBvalues)
         # print(np.asarray(RGBvalues))
         # fout.write(' '.join(' '.join(str(j) for j in i) for i in RGBvalues))
@@ -150,12 +150,11 @@ net = regression(net, optimizer='adam', learning_rate=0.001,
 model = tflearn.DNN(net)
 '''
 # Run this to train the data
-model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=25, validation_set=({'input': test_pixel}, {'targets': test_labels}),
+model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=5, validation_set=({'input': test_pixel}, {'targets': test_labels}),
           snapshot_step=500, show_metric=True, run_id='cancer')
 
 model.save("cancer.model")
 '''
-
 # Run this to check the data
 model.load('cancer.model')
 print((model.predict([test_pixel[0]])[0]))
