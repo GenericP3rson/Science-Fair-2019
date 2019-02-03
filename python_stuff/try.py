@@ -20,18 +20,23 @@ if __name__ == "__main__":
     Rval = []
     Gval = []
     Bval = []
+    allval = []
     extra = 0
     for i in range(x):
         Rhold = []
         Ghold = []
         Bhold = []
+        ahold = []
         for j in range(y):
-            Rhold.append(image.getdata()[j+extra][0])
-            Ghold.append(image.getdata()[j+extra][1])
-            Bhold.append(image.getdata()[j+extra][2])
+            colour = image.getdata()[j+extra]
+            Rhold.append(colour[0])
+            Ghold.append(colour[1])
+            Bhold.append(colour[2])
+            ahold.append(colour[0:3])
         Rval.append(Rhold)
         Gval.append(Ghold)
         Bval.append(Bhold)
+        allval.append(ahold)
         extra = extra + y
     # print(Rval)
     print(len(Rval), len(Rval[0]), image.size)
@@ -53,6 +58,7 @@ def kernel(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_
     # kernel_width = 3
     # kernel_height = 3
     print(x, y)
+    full = []
     while i < x:
         j = 0
         while j < y:
@@ -68,9 +74,15 @@ def kernel(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_
                         pass
             # print(find_max(pts))
             print(pts)
+            full.append(pts)
             j = j+kernel_move_width
         i = i+kernel_move_height  
-kernel(Rval, 3, 3)
+    return full
+
+data = kernel(allval, 150, 150, 100, 100)[0]
+im = Image.new("RGB", (150, 150))
+im.putdata(data)
+im.save("pix.png")
 
 
 def max_pooling(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_move_height=10):
@@ -100,7 +112,7 @@ def max_pooling(img, kernel_width=10, kernel_height=10, kernel_move_width=10, ke
         i = i+kernel_move_height
 
 
-max_pooling(Rval, 3, 3)
+# max_pooling(Rval, 3, 3)
 
 def find_circles():
     '''

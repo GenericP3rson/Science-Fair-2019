@@ -39,9 +39,9 @@ dataset = open_and_random("harvard/HAM10000_metadata.csv")
 # Two ways to access: stuff.loc[][] or stuff.iloc[][]
 # print(np.asarray(stuff.loc[:, "image_id"]))
 data_limit_low = 0
-data_limit_mid1 = 100
-data_limit_mid2 = 100
-data_limit_hi = 150
+data_limit_mid1 = 5000
+data_limit_mid2 = 5000
+data_limit_hi = 6000
 data = list(dataset.loc[:, "image_id"])  # Images in a list
 image_list = data[data_limit_low:data_limit_mid1]
 test_images = data[data_limit_mid2:data_limit_hi]
@@ -160,3 +160,7 @@ model.save("cancer.model")
 model.load('cancer.model')
 print((model.predict([test_pixel[0]])[0]))
 print(test_labels[0])
+print((model.predict([test_pixel[1]])[0]))
+print(test_labels[1])
+print((model.predict([test_pixel[2]])[0]))
+print(test_labels[2])
