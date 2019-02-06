@@ -80,10 +80,20 @@ def kernel(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_
     return full
 
 data = kernel(allval, 150, 150, 100, 100)
-for i in range(len(data)):
-    im = Image.new("RGB", (150, 150))
-    im.putdata(data[i])
-    im.save("pix" + str(i) + ".png")
+
+def new_kernel(image, x, y, delx, dely):
+    '''
+    Maybe we'll implement a kernel that returns everything in a 1d list.
+    '''
+
+
+# for i in range(len(data)):
+#     stuff = [z for z in data[i]]
+#     print("OK")
+#     print(stuff)
+#     im = Image.new("RGB", (150, 150))
+#     im.putdata(stuff)
+    # im.save("pix" + str(i) + ".png")
 
 
 def max_pooling(img, kernel_width=10, kernel_height=10, kernel_move_width=10, kernel_move_height=10):

@@ -10,12 +10,10 @@ We need to determine what the training data should be.
 RUNS:
 1) Redness (w/ kernel)
 2) Bumps (w/ CNN)
-3) Scaly (w/ CNN)
+3) Scaly (w/ CNN) ???
 
 TO CHECK:
-1) Eczema (maybe also psoriasis?) (w/ RUNS)
-2) Ringworm (w/ CNN + Redness)
-3) Melanoma
+1) HAM10000
 
 PROCESS:
 1) It looks through the body part
