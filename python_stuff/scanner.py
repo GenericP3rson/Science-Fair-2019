@@ -30,6 +30,7 @@ left_right = 50
 def scanner(dimx = 150, dimy = 150, xmove = 100, ymove = 100):
     q = 0
     # move = 100
+    everything = []
     for le in range(0, len(rows)-dimy, ymove):
         for x in range(0, len(rows[0]) - dimx, xmove):
             im = Image.new("RGB", (dimx, dimy))
@@ -38,8 +39,10 @@ def scanner(dimx = 150, dimy = 150, xmove = 100, ymove = 100):
                 total += rows[i][x:x+dimx]
                 # print(i, x, x+150)
             im.putdata(total)
+            everything.append(total)
             im.save("test"+str(q)+".png")
             q += 1
+    return everything
 scanner(150, 150, 50, 50)
 
 '''
