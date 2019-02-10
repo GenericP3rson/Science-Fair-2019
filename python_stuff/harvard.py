@@ -17,37 +17,67 @@ import random
 
 def open_and_random(dataset):
     '''
-    This will open a CSV, mix it, then turn it back into a DataFrame.
+    This will open a CSV, split it into two sections, mix it, then turn it back into a DataFrame.
     '''
+    print("Opening Dataset...")
     dataset = pd.read_csv(dataset)  # Opens the dataset
     dataset = [dataset.iloc[i] for i in range(len(dataset))]
-    random.shuffle(dataset)  # Shuffles the dataset
-    al = []
-    for row in range(len(dataset[0])):
-        mini = []
-        for i in dataset:
-            mini.append(i[row])
-        al.append(mini)
-    df = pd.DataFrame({"image_id": al[1]})
-    df["dx"] = al[2]
-    print(df)
-    return df
+    # print(dataset)
+    # random.shuffle(dataset)  # Shuffles the dataset
+    canc = [["akiec", []], ["bcc", []], ["bkl", []], [
+        "df", []], ["mel", []], ["nv", []], ["vasc", []]]
+    for row in dataset:  # Looks at each point in dataset
+        for dis in canc:  # Looks at each disease in the cancer
+            # If the row's cancer is the cancer in the dataset, append to canc.
+            if (row[2] == dis[0]):
+                # Just adding the image and cancer, 'cause that's all we need
+                dis[1].append([row[1], row[2]])
+                break
+    print(canc)
+    # Now that they are separated, we should partition the data.
+    all_test = []
+    all_train = []
+    for data in canc:
+        l = round(len(data[1])/2)
+        train_data = data[1][:l]  # Splits the two roughly in half
+        test_data = data[1][l:]
+        data.append(train_data)
+        data.append(test_data)  # Adds it into the canc list
+        all_test += test_data
+        all_train += train_data
+    print(canc)
+    print(len(canc[0]))
+    random.shuffle(all_test)
+    random.shuffle(all_train)  # Mixing the two datasets
+    test_data = [i[0] for i in all_test]  # Adds all the testing data
+    test_labels = [i[1] for i in all_test]  # Adds all the labels
+    train_data = [i[0] for i in all_train]
+    train_labels = [i[1] for i in all_train]
+    traindf = pd.DataFrame({"image_id": train_data})
+    traindf["dx"] = train_labels
+    testdf = pd.DataFrame({"image_id": test_data})
+    testdf["dx"] = test_labels
+    # print(testdf, traindf)
+    return [traindf, testdf]
 
 
-dataset = open_and_random("harvard/HAM10000_metadata.csv")
+train, test = open_and_random("harvard/HAM10000_metadata.csv")
+
+
+# dataset = open_and_random("harvard/HAM10000_metadata.csv")
 # print(stuff.loc[0]["image_id"])
 # Two ways to access: stuff.loc[][] or stuff.iloc[][]
 # print(np.asarray(stuff.loc[:, "image_id"]))
-data_limit_low = 0
-data_limit_mid1 = 10000
-data_limit_mid2 = 10000
-data_limit_hi = 10015
-data = list(dataset.loc[:, "image_id"])  # Images in a list
-image_list = data[data_limit_low:data_limit_mid1]
-test_images = data[data_limit_mid2:data_limit_hi]
-all_labels = list(dataset.loc[:, "dx"])
-labels = all_labels[data_limit_low:data_limit_mid1]
-test_labels = all_labels[data_limit_mid2:data_limit_hi]
+# data_limit_low = 0
+# data_limit_mid1 = 10000
+# data_limit_mid2 = 10000
+# data_limit_hi = 10015
+# data = list(dataset.loc[:, "image_id"])  # Images in a list
+image_list = list(train.loc[:, "image_id"])
+test_images = list(test.loc[:, "image_id"])
+# all_labels = list(dataset.loc[:, "dx"])
+labels = list(train.loc[:, "dx"])
+test_labels = list(test.loc[:, "dx"])
 
 
 # image_array = np.asarray(dataset.loc[:, "image_id"]) # Images in a numpy array
@@ -66,6 +96,7 @@ def convert(labels):
     5 melanocytic nevi (nv),
     6 vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage, vasc).
     '''
+    print("Processing the labels...")
     key = [
         ["akiec", [1, 0, 0, 0, 0, 0, 0]],
         ["bcc", [0, 1, 0, 0, 0, 0, 0]],
@@ -103,9 +134,12 @@ def convert_data(image_list):
     This converts the image names (in a list) to an array of pixels.
     This also writes everything to "cancer_photos.txt" 'cause why not?
     '''
+    print("Processing the data...")
     # ALL IMAGES ARE (600, 450)
     # fout = open("cancer_photos.txt", "w")
     all_pixels = []
+    tot = len(image_list)
+    i = 1
     for image_name in image_list:
         image = Image.open("harvard/mini_set/" + image_name + ".jpg")
         # print(str(image.size) + " = " + str(len(image.getdata())) + " total pixels.")
@@ -120,6 +154,8 @@ def convert_data(image_list):
         all_pixels.append(np.asarray(RGBvalues))
         x = image.size[0]
         y = image.size[1]
+        print(str(i) + "/" + str(tot))
+        i+=1
     all_pixels = np.asarray(all_pixels)
     all_pixels.resize(len(image_list), x, y, 3)
     print(all_pixels)
@@ -129,10 +165,12 @@ def convert_data(image_list):
 all_pixels = convert_data(image_list)
 test_pixel = convert_data(test_images)
 
+IMAGE_SIZE = 200
 
-all_pixels = all_pixels.reshape([-1, 150, 150, 3])
+all_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
+test_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
 
-net = input_data(shape=[None, 150, 150, 3], name='input')
+net = input_data(shape=[None, IMAGE_SIZE, IMAGE_SIZE, 3], name='input')
 
 net = conv_2d(net, 50, 2, activation='relu')
 net = max_pool_2d(net, 10)

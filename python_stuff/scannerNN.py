@@ -132,9 +132,9 @@ import random
 
 
 # all_pixels = all_pixels.reshape([-1, 150, 150, 3])
+IMAGE_SIZE = 200
 
-
-net = input_data(shape=[None, 150, 150, 3], name='input')
+net = input_data(shape=[None, IMAGE_SIZE, IMAGE_SIZE, 3], name='input')
 
 net = conv_2d(net, 50, 2, activation='relu')
 net = max_pool_2d(net, 10)
@@ -206,7 +206,38 @@ def scanner(dimx=150, dimy=150, xmove=100, ymove=100):
     return everything
 
 
-ans = scanner(150, 150, 50, 50)
+ans = scanner(IMAGE_SIZE, IMAGE_SIZE, 50, 50)
 
-values = [list(model.predict([np.asarray(i).reshape(150, 150, 3)])[0]) for i in ans]
+values = [list(model.predict([np.asarray(i).reshape(
+    IMAGE_SIZE, IMAGE_SIZE, 3)])[0]) for i in ans]
+# Goes through and predicts for each kernel
+
+def get_max_index(li): 
+    max = 0
+    ans = -1
+    for i in range(len(li)):
+        if li[i] > max and li[i] > 0.75: # I'm setting 0.25 to be a random threshold. 
+            ans = i
+    return ans
+
+def convert_ans(data):
+    key = [
+        ["akiec", [1, 0, 0, 0, 0, 0, 0], 0],
+        ["bcc", [0, 1, 0, 0, 0, 0, 0], 1],
+        ["bkl", [0, 0, 1, 0, 0, 0, 0], 2],
+        ["df", [0, 0, 0, 1, 0, 0, 0], 3],
+        ["mel", [0, 0, 0, 0, 1, 0, 0], 4],
+        ["nv", [0, 0, 0, 0, 0, 1, 0], 5],
+        ["vasc", [0, 0, 0, 0, 0, 0, 1], 6]
+    ]  # This is the key
+    for i in range(len(data)):
+        ma = get_max_index(data[i])
+        if ma == -1:
+            data[i] = 'Safe'
+        else:
+            for j in key:
+                if ma == j[2]:
+                    data[i] = j[0]
+    return data
 print(values)
+print(convert_ans(values))

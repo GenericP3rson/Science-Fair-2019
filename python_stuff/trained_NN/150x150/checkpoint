@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/paromitadatta/Documents/sci_fi_2019/python_stuff/trained_NN/150x150/cancer.model"
+all_model_checkpoint_paths: "/Users/paromitadatta/Documents/sci_fi_2019/python_stuff/trained_NN/150x150/cancer.model"
