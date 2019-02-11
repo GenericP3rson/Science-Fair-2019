@@ -42,7 +42,13 @@ def scanner(dimx = 150, dimy = 150, xmove = 100, ymove = 100):
             everything.append(total)
             im.save("test"+str(q)+".png")
             q += 1
-    return everything
+    final = []
+    for i in everything:
+        ok = [(j[0]/255, j[1]/255, j[2]/255) for j in i]
+        final.append(ok)
+    # print(len(everything[0]))
+    print(final)
+    return final
 scanner(150, 150, 50, 50)
 
 '''

@@ -179,25 +179,29 @@ net = conv_2d(net, 200, 2, activation='relu')
 net = max_pool_2d(net, 10)
 
 net = fully_connected(net, 500, activation='relu')
-net = dropout(net, 0.75)
+net = dropout(net, 0.5)
+
+net = fully_connected(net, 1200, activation='relu')
+net = dropout(net, 0.7)
 
 net = fully_connected(net, 7, activation='softmax')
-net = regression(net, optimizer='adam', learning_rate=0.001,
+net = regression(net, optimizer='sgd', learning_rate=0.001,
                  loss='categorical_crossentropy', name='targets')
 
 model = tflearn.DNN(net)
 
 # Run this to train the data
 model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=100, validation_set=({'input': test_pixel}, {'targets': test_labels}),
-          snapshot_step=500, show_metric=True, run_id='cancer')
-model.save("cancer.model")
+          show_metric=True, run_id='cancer')
+model.save("trained_NN/200x200/cancer1.model")
 
 
 # Run this to check the data
-model.load('cancer.model')
+model.load('trained_NN/200x200/cancer1.model')
 print((model.predict([test_pixel[0]])[0]))
 print(test_labels[0])
 print((model.predict([test_pixel[1]])[0]))
 print(test_labels[1])
 print((model.predict([test_pixel[2]])[0]))
 print(test_labels[2])
+print("REMEMBER TO COPY/PASTE THE TERMINAL TO DOCUMENT!!!")

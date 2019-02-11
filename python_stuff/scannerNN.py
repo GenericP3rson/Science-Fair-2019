@@ -203,7 +203,14 @@ def scanner(dimx=150, dimy=150, xmove=100, ymove=100):
             everything.append(total)
             # im.save("test"+str(q)+".png") 
             q += 1
-    return everything
+    final = []
+    for i in everything:
+        ok = [(j[0]/255, j[1]/255, j[2]/255) for j in i]
+        final.append(ok)
+    # print(len(everything[0]))
+    # print(final)
+    return final
+    # return everything
 
 
 ans = scanner(IMAGE_SIZE, IMAGE_SIZE, 50, 50)
@@ -216,7 +223,7 @@ def get_max_index(li):
     max = 0
     ans = -1
     for i in range(len(li)):
-        if li[i] > max and li[i] > 0.75: # I'm setting 0.25 to be a random threshold. 
+        if li[i] > max and li[i] >= 0.9: # I'm setting 0.1 to be a random threshold. 
             ans = i
     return ans
 
