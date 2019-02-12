@@ -165,7 +165,7 @@ def convert_data(image_list):
 all_pixels = convert_data(image_list)
 test_pixel = convert_data(test_images)
 
-IMAGE_SIZE = 200
+IMAGE_SIZE = 150
 
 all_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
 test_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
@@ -193,11 +193,11 @@ model = tflearn.DNN(net)
 # Run this to train the data
 model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=100, validation_set=({'input': test_pixel}, {'targets': test_labels}),
           show_metric=True, run_id='cancer')
-model.save("trained_NN/200x200/cancer2.model")
+model.save("trained_NN/150x150/cancer1.model")
 
 
 # Run this to check the data
-model.load('trained_NN/200x200/cancer2.model')
+model.load('trained_NN/150x150/cancer1.model')
 print((model.predict([test_pixel[0]])[0]))
 print(test_labels[0])
 print((model.predict([test_pixel[1]])[0]))

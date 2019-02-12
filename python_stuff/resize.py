@@ -3,7 +3,7 @@ import os
 path = "harvard/full_set"
 total = len(os.listdir(path))
 i = 0
-x = 200
+x = 150
 for filename in os.listdir(path):
     if (filename != ".DS_Store"):
         image = Image.open("harvard/full_set/" + filename)
