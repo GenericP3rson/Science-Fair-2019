@@ -185,7 +185,7 @@ net = fully_connected(net, 1200, activation='relu')
 net = dropout(net, 0.7)
 
 net = fully_connected(net, 7, activation='softmax')
-net = regression(net, optimizer='sgd', learning_rate=0.001,
+net = regression(net, optimizer='Adam', learning_rate=0.001,
                  loss='categorical_crossentropy', name='targets')
 
 model = tflearn.DNN(net)
@@ -193,11 +193,11 @@ model = tflearn.DNN(net)
 # Run this to train the data
 model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=100, validation_set=({'input': test_pixel}, {'targets': test_labels}),
           show_metric=True, run_id='cancer')
-model.save("trained_NN/200x200/cancer1.model")
+model.save("trained_NN/200x200/cancer2.model")
 
 
 # Run this to check the data
-model.load('trained_NN/200x200/cancer1.model')
+model.load('trained_NN/200x200/cancer2.model')
 print((model.predict([test_pixel[0]])[0]))
 print(test_labels[0])
 print((model.predict([test_pixel[1]])[0]))
