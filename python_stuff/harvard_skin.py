@@ -1,3 +1,4 @@
+# harvard_skin
 # https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T#datasetForm:tabView:metadataMapTab
 # from tflearn.data_utils import load_csv
 import numpy as np
@@ -64,6 +65,7 @@ def open_and_random(dataset):
 
 train, test = open_and_random("harvard/HAM10000_metadata.csv")
 
+
 def add_skin(p):
     '''
     This should add the skin.
@@ -73,12 +75,14 @@ def add_skin(p):
         if (i != ".DS_Store"):
             img_names.append(i)
     random.shuffle(img_names)
-    x = round((len(os.listdir(p))-1)/2) # -- because of .DS_Store
+    x = round((len(os.listdir(p))-1)/2)  # -- because of .DS_Store
     train_x = img_names[:x]
     test_x = img_names[x:]
     train_y = ["skin" for i in train_x]
     test_y = ["skin" for i in test_x]
     return [train_x, test_x, train_y, test_y]
+
+
 trx, tx, tray, ty = add_skin("SKIN")
 # dataset = open_and_random("harvard/HAM10000_metadata.csv")
 # print(stuff.loc[0]["image_id"])
@@ -99,6 +103,8 @@ print(labels)
 
 # image_array = np.asarray(dataset.loc[:, "image_id"]) # Images in a numpy array
 # These both have the data (I'm not sure how I what to store it)
+
+
 def convert(labels):
     '''
     This should convert the labels into a format we can use (as in, it'll make integers).
@@ -164,7 +170,8 @@ def convert_data(image_list):
         # print(image.convert("RGB"))
         # print(list(image.getdata()))
         # We have a list of the rgb values
-        RGBvalues = list((i[0]/255, i[1]/255, i[2]/255) for i in image.getdata())
+        RGBvalues = list((i[0]/255, i[1]/255, i[2]/255)
+                         for i in image.getdata())
         # print(RGBvalues)
         # print(np.asarray(RGBvalues))
         # fout.write(' '.join(' '.join(str(j) for j in i) for i in RGBvalues))
@@ -173,7 +180,7 @@ def convert_data(image_list):
         x = image.size[0]
         y = image.size[1]
         print(str(i) + "/" + str(tot))
-        i+=1
+        i += 1
     all_pixels = np.asarray(all_pixels)
     all_pixels.resize(len(image_list), x, y, 3)
     print(all_pixels)
