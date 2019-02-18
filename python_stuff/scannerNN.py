@@ -132,7 +132,29 @@ import random
 
 
 # all_pixels = all_pixels.reshape([-1, 150, 150, 3])
+# IMAGE_SIZE = 200
+
+# net = input_data(shape=[None, IMAGE_SIZE, IMAGE_SIZE, 3], name='input')
+
+# net = conv_2d(net, 50, 2, activation='relu')
+# net = max_pool_2d(net, 10)
+
+# net = conv_2d(net, 200, 2, activation='relu')
+# net = max_pool_2d(net, 10)
+
+# net = fully_connected(net, 500, activation='relu')
+# net = dropout(net, 0.75)
+
+# net = fully_connected(net, 7, activation='softmax')
+# net = regression(net, optimizer='adam', learning_rate=0.001,
+#                  loss='categorical_crossentropy', name='targets')
+
+# model = tflearn.DNN(net)
+
 IMAGE_SIZE = 200
+
+# all_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
+# test_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
 
 net = input_data(shape=[None, IMAGE_SIZE, IMAGE_SIZE, 3], name='input')
 
@@ -143,10 +165,13 @@ net = conv_2d(net, 200, 2, activation='relu')
 net = max_pool_2d(net, 10)
 
 net = fully_connected(net, 500, activation='relu')
-net = dropout(net, 0.75)
+net = dropout(net, 0.5)
 
-net = fully_connected(net, 7, activation='softmax')
-net = regression(net, optimizer='adam', learning_rate=0.001,
+net = fully_connected(net, 1200, activation='relu')
+net = dropout(net, 0.7)
+
+net = fully_connected(net, 8, activation='softmax')
+net = regression(net, optimizer='Adam', learning_rate=0.001,
                  loss='categorical_crossentropy', name='targets')
 
 model = tflearn.DNN(net)
@@ -159,7 +184,7 @@ model.save("cancer.model")
 '''
 
 # Run this to check the data
-model.load('cancer.model')
+model.load('trained_NN/200x200/cancer3.model')
 
 if __name__ == "__main__":
     '''
@@ -229,13 +254,14 @@ def get_max_index(li):
 
 def convert_ans(data):
     key = [
-        ["akiec", [1, 0, 0, 0, 0, 0, 0], 0],
-        ["bcc", [0, 1, 0, 0, 0, 0, 0], 1],
-        ["bkl", [0, 0, 1, 0, 0, 0, 0], 2],
-        ["df", [0, 0, 0, 1, 0, 0, 0], 3],
-        ["mel", [0, 0, 0, 0, 1, 0, 0], 4],
-        ["nv", [0, 0, 0, 0, 0, 1, 0], 5],
-        ["vasc", [0, 0, 0, 0, 0, 0, 1], 6]
+        ["akiec", [1, 0, 0, 0, 0, 0, 0, 0], 0],
+        ["bcc", [0, 1, 0, 0, 0, 0, 0, 0], 1],
+        ["bkl", [0, 0, 1, 0, 0, 0, 0, 0], 2],
+        ["df", [0, 0, 0, 1, 0, 0, 0, 0], 3],
+        ["mel", [0, 0, 0, 0, 1, 0, 0, 0], 4],
+        ["nv", [0, 0, 0, 0, 0, 1, 0, 0], 5],
+        ["vasc", [0, 0, 0, 0, 0, 0, 1, 0], 6],
+        ["skin", [0, 0, 0, 0, 0, 0, 0, 1], 7]
     ]  # This is the key
     for i in range(len(data)):
         ma = get_max_index(data[i])
