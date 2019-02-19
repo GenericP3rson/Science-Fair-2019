@@ -17,6 +17,88 @@ import os
 # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 
 
+def convert(labels):
+    '''
+    This should convert the labels into a format we can use (as in, it'll make integers).
+    '''
+    '''
+    KEY:
+    0 Actinic keratoses and intraepithelial carcinoma / Bowen's disease (akiec), 
+    1 basal cell carcinoma (bcc), 
+    2 benign keratosis-like lesions (solar lentigines / seborrheic keratoses and lichen-planus like keratoses, bkl), 
+    3 dermatofibroma (df), 
+    4 melanoma (mel), 
+    5 melanocytic nevi (nv),
+    6 vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage, vasc).
+    '''
+    print("Processing the labels...")
+    key = [
+        ["akiec", [1, 0, 0, 0, 0, 0, 0, 0]],
+        ["bcc", [0, 1, 0, 0, 0, 0, 0, 0]],
+        ["bkl", [0, 0, 1, 0, 0, 0, 0, 0]],
+        ["df", [0, 0, 0, 1, 0, 0, 0, 0]],
+        ["mel", [0, 0, 0, 0, 1, 0, 0, 0]],
+        ["nv", [0, 0, 0, 0, 0, 1, 0, 0]],
+        ["vasc", [0, 0, 0, 0, 0, 0, 1, 0]],
+        ["skin", [0, 0, 0, 0, 0, 0, 0, 1]]
+    ]  # This is the key
+    # labels = list(dataset.loc[:, "dx"])
+    # print(labels)
+    index = 0
+    for lab in labels:  # This is where the converting happens
+        for disease in key:
+            if lab == disease[0]:
+                labels[index] = disease[1]
+                break
+        index += 1
+    # print(labels)
+    labels = np.asarray(labels)  # Changes it to array
+    labels.resize(len(labels), 8)  # Makes it 2d
+    print(labels)
+    return labels
+
+
+# labels = convert(labels)  # Inserts the dx column to be converted
+# # print(labels)
+# test_labels = convert(test_labels)
+
+# So I have all the labels in the correct format, now all I have to do is load up the images and put them in the correct format
+
+
+# def convert_data(image_list):
+#     '''
+#     This converts the image names (in a list) to an array of pixels.
+#     This also writes everything to "cancer_photos.txt" 'cause why not?
+#     '''
+#     print("Processing the data...")
+#     # ALL IMAGES ARE (600, 450)
+#     # fout = open("cancer_photos.txt", "w")
+#     all_pixels = []
+#     tot = len(image_list)
+#     i = 1
+#     for image_name in image_list:
+#         image = Image.open("harvard/mini_set/" + image_name + ".jpg")
+#         # print(str(image.size) + " = " + str(len(image.getdata())) + " total pixels.")
+#         # print(image.convert("RGB"))
+#         # print(list(image.getdata()))
+#         # We have a list of the rgb values
+#         RGBvalues = list((i[0]/255, i[1]/255, i[2]/255)
+#                          for i in image.getdata())
+#         # print(RGBvalues)
+#         # print(np.asarray(RGBvalues))
+#         # fout.write(' '.join(' '.join(str(j) for j in i) for i in RGBvalues))
+#         # fout.write("\n")
+#         all_pixels.append(np.asarray(RGBvalues))
+#         x = image.size[0]
+#         y = image.size[1]
+#         print(str(i) + "/" + str(tot))
+#         i += 1
+#     all_pixels = np.asarray(all_pixels)
+#     all_pixels.resize(len(image_list), x, y, 3)
+#     print(all_pixels)
+#     return all_pixels
+
+
 def open_and_random(dataset):
     '''
     This will open a CSV, split it into two sections, mix it, then turn it back into a DataFrame.
@@ -26,14 +108,24 @@ def open_and_random(dataset):
     dataset = [dataset.iloc[i] for i in range(len(dataset))]
     # print(dataset)
     # random.shuffle(dataset)  # Shuffles the dataset
-    canc = [["akiec", []], ["bcc", []], ["bkl", []], [
-        "df", []], ["mel", []], ["nv", []], ["vasc", []]]
+    canc = [
+        ["akiec", [], [1, 0, 0, 0, 0, 0, 0, 0]],
+        ["bcc", [], [0, 1, 0, 0, 0, 0, 0, 0]],
+        ["bkl", [], [0, 0, 1, 0, 0, 0, 0, 0]],
+        ["df", [], [0, 0, 0, 1, 0, 0, 0, 0]],
+        ["mel", [], [0, 0, 0, 0, 1, 0, 0, 0]],
+        ["nv", [], [0, 0, 0, 0, 0, 1, 0, 0]],
+        ["vasc", [], [0, 0, 0, 0, 0, 0, 1, 0]],
+        ["skin", [], [0, 0, 0, 0, 0, 0, 0, 1]]
+    ]  # This is the key
+    # canc = [["akiec", []], ["bcc", []], ["bkl", []], [
+        # "df", []], ["mel", []], ["nv", []], ["vasc", []]]
     for row in dataset:  # Looks at each point in dataset
         for dis in canc:  # Looks at each disease in the cancer
             # If the row's cancer is the cancer in the dataset, append to canc.
             if (row[2] == dis[0]):
                 # Just adding the image and cancer, 'cause that's all we need
-                dis[1].append([row[1], row[2]])
+                dis[1].append([row[1], dis[2]])
                 break
     print(canc)
     # Now that they are separated, we should partition the data.
@@ -78,8 +170,8 @@ def add_skin(p):
     x = round((len(os.listdir(p))-1)/2)  # -- because of .DS_Store
     train_x = img_names[:x]
     test_x = img_names[x:]
-    train_y = ["skin" for i in train_x]
-    test_y = ["skin" for i in test_x]
+    train_y = [[0, 0, 0, 0, 0, 0, 0, 1] for i in train_x]
+    test_y = [[0, 0, 0, 0, 0, 0, 0, 1] for i in test_x]
     return [train_x, test_x, train_y, test_y]
 
 
@@ -105,50 +197,50 @@ print(labels)
 # These both have the data (I'm not sure how I what to store it)
 
 
-def convert(labels):
-    '''
-    This should convert the labels into a format we can use (as in, it'll make integers).
-    '''
-    '''
-    KEY:
-    0 Actinic keratoses and intraepithelial carcinoma / Bowen's disease (akiec), 
-    1 basal cell carcinoma (bcc), 
-    2 benign keratosis-like lesions (solar lentigines / seborrheic keratoses and lichen-planus like keratoses, bkl), 
-    3 dermatofibroma (df), 
-    4 melanoma (mel), 
-    5 melanocytic nevi (nv),
-    6 vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage, vasc).
-    '''
-    print("Processing the labels...")
-    key = [
-        ["akiec", [1, 0, 0, 0, 0, 0, 0, 0]],
-        ["bcc", [0, 1, 0, 0, 0, 0, 0, 0]],
-        ["bkl", [0, 0, 1, 0, 0, 0, 0, 0]],
-        ["df", [0, 0, 0, 1, 0, 0, 0, 0]],
-        ["mel", [0, 0, 0, 0, 1, 0, 0, 0]],
-        ["nv", [0, 0, 0, 0, 0, 1, 0, 0]],
-        ["vasc", [0, 0, 0, 0, 0, 0, 1, 0]],
-        ["skin", [0, 0, 0, 0, 0, 0, 0, 1]]
-    ]  # This is the key
-    # labels = list(dataset.loc[:, "dx"])
-    # print(labels)
-    index = 0
-    for lab in labels:  # This is where the converting happens
-        for disease in key:
-            if lab == disease[0]:
-                labels[index] = disease[1]
-                break
-        index += 1
-    # print(labels)
-    labels = np.asarray(labels)  # Changes it to array
-    labels.resize(len(labels), 8)  # Makes it 2d
-    print(labels)
-    return labels
+# def convert(labels):
+#     '''
+#     This should convert the labels into a format we can use (as in, it'll make integers).
+#     '''
+#     '''
+#     KEY:
+#     0 Actinic keratoses and intraepithelial carcinoma / Bowen's disease (akiec), 
+#     1 basal cell carcinoma (bcc), 
+#     2 benign keratosis-like lesions (solar lentigines / seborrheic keratoses and lichen-planus like keratoses, bkl), 
+#     3 dermatofibroma (df), 
+#     4 melanoma (mel), 
+#     5 melanocytic nevi (nv),
+#     6 vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage, vasc).
+#     '''
+#     print("Processing the labels...")
+#     key = [
+#         ["akiec", [1, 0, 0, 0, 0, 0, 0, 0]],
+#         ["bcc", [0, 1, 0, 0, 0, 0, 0, 0]],
+#         ["bkl", [0, 0, 1, 0, 0, 0, 0, 0]],
+#         ["df", [0, 0, 0, 1, 0, 0, 0, 0]],
+#         ["mel", [0, 0, 0, 0, 1, 0, 0, 0]],
+#         ["nv", [0, 0, 0, 0, 0, 1, 0, 0]],
+#         ["vasc", [0, 0, 0, 0, 0, 0, 1, 0]],
+#         ["skin", [0, 0, 0, 0, 0, 0, 0, 1]]
+#     ]  # This is the key
+#     # labels = list(dataset.loc[:, "dx"])
+#     # print(labels)
+#     index = 0
+#     for lab in labels:  # This is where the converting happens
+#         for disease in key:
+#             if lab == disease[0]:
+#                 labels[index] = disease[1]
+#                 break
+#         index += 1
+#     # print(labels)
+#     labels = np.asarray(labels)  # Changes it to array
+#     labels.resize(len(labels), 8)  # Makes it 2d
+#     print(labels)
+#     return labels
 
 
-labels = convert(labels)  # Inserts the dx column to be converted
+# labels = convert(labels)  # Inserts the dx column to be converted
 # print(labels)
-test_labels = convert(test_labels)
+# test_labels = convert(test_labels)
 
 # So I have all the labels in the correct format, now all I have to do is load up the images and put them in the correct format
 

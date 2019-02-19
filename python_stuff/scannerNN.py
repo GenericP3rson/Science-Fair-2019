@@ -248,7 +248,7 @@ def get_max_index(li):
     max = 0
     ans = -1
     for i in range(len(li)):
-        if li[i] > max and li[i] >= 0.9: # I'm setting 0.1 to be a random threshold. 
+        if li[i] > max and li[i] >= 0.99: # I'm setting 0.1 to be a random threshold. 
             ans = i
     return ans
 

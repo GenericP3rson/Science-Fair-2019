@@ -190,24 +190,24 @@ def convert_data(image_list):
 all_pixels = convert_data(image_list)
 test_pixel = convert_data(test_images)
 
-IMAGE_SIZE = 400
+IMAGE_SIZE = 200
 
 all_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
 test_pixels = all_pixels.reshape([-1, IMAGE_SIZE, IMAGE_SIZE, 3])
 
 net = input_data(shape=[None, IMAGE_SIZE, IMAGE_SIZE, 3], name='input')
 
-net = conv_2d(net, 50, 2, activation='relu')
-net = max_pool_2d(net, 10)
+net = conv_2d(net, 97, 3, activation='relu')
+net = max_pool_2d(net, 5)
 
-net = conv_2d(net, 200, 2, activation='relu')
-net = max_pool_2d(net, 10)
+net = conv_2d(net, 256, 13, activation='relu')
+net = max_pool_2d(net, 5)
 
-net = fully_connected(net, 500, activation='relu')
+net = fully_connected(net, 384, activation='relu')
 net = dropout(net, 0.5)
 
-net = fully_connected(net, 1200, activation='relu')
-net = dropout(net, 0.7)
+# net = fully_connected(net, 1200, activation='relu')
+# net = dropout(net, 0.7)
 
 net = fully_connected(net, 8, activation='softmax')
 net = regression(net, optimizer='Adam', learning_rate=0.001,
@@ -215,11 +215,11 @@ net = regression(net, optimizer='Adam', learning_rate=0.001,
 
 model = tflearn.DNN(net)
 
-decided_path = "trained_NN/500x500/cancer.model"
+decided_path = "trained_NN/200x200/cancer4.model"
 
 # Run this to train the data
 model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=100, validation_set=({'input': test_pixel}, {'targets': test_labels}),
-          show_metric=True, run_id='cancer500')
+          show_metric=True, run_id='cancer')
 model.save(decided_path)
 
 
