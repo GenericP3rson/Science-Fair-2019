@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script src = "https://cdn.rawgit.com/BrainJS/brain.js/45ce6ffc/browser.js"></script>
+        <h1 id = "um"></h1>
+    </body>
+    <script>
+        try {
+                const br = new brain.NeuralNetwork({
+                    activation: "relu",
+                    hiddenlayers: [3, 4],
+                    learningRate: 0.5
+                });
+                console.log(br);
+                let data = [];
+                for (let i = 0; i < 50; ++i) {
+                    let q = Math.random();
+                    data.push({ input: [q], output: [q] });
+                }
+                // br.activation = "relu";
+                // console.log(data);
+                br.train(data);
+                for (let x = 0; x < 10; x++) {
+                    let i = Math.random();
+                    let a = [i, br.run([i])[0]];
+                    document.getElementById("um").innerHTML += a[0] + ", " + a[1] + "<br>";
+                }
+                console.log("OK");
+            }
+            catch (E) { console.log(E) }
+    </script>
+</html>

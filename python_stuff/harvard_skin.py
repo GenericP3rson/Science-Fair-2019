@@ -215,10 +215,10 @@ net = regression(net, optimizer='Adam', learning_rate=0.001,
 
 model = tflearn.DNN(net)
 
-decided_path = "trained_NN/500x500/cancer.model"
+decided_path = "trained_NN/400x400/cancer.model"
 
 # Run this to train the data
-model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=100, validation_set=({'input': test_pixel}, {'targets': test_labels}),
+model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=50, validation_set=({'input': test_pixel}, {'targets': test_labels}),
           show_metric=True, run_id='cancer500')
 model.save(decided_path)
 
