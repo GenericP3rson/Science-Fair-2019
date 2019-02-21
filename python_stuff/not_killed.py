@@ -310,7 +310,7 @@ model = tflearn.DNN(net)
 decided_path = "trained_NN/400x400/cancer.model"
 
 # Run this to train the data
-model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=50, validation_set=({'input': test_pixel}, {'targets': test_labels}),
+model.fit({'input': all_pixels}, {'targets': labels}, n_epoch=30, validation_set=({'input': test_pixel}, {'targets': test_labels}),
           show_metric=True, run_id='cancer500')
 model.save(decided_path)
 

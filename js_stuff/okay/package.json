@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "brain": "^1.0.0",
-    "brain.js": "^1.6.1"
+    "brain.js": "^1.6.1",
+    "convnetjs-ts": "0.0.9"
   }
 }
