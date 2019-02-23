@@ -1,2 +1,1 @@
-const brain = require("brain");
-console.log(brain);
+const net = new brain.NeuralNetwork(); 
