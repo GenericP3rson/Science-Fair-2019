@@ -8,6 +8,7 @@ We need to determine what the training data should be.
 
 
 RUNS:
-3) Redness (w/ kernel) Maybe?
+3) Redness (w/ kernel) Maybe? :: Use derivatives!
+4) Make a simple NN to diagnose
 1) Create UI (simple image upload and image + mask output)
 2) Work with K-Means

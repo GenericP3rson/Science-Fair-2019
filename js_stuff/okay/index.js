@@ -1,3 +1,1 @@
-console.log("HI");
-var b = require("brain");
-console.log(b);
+const net = new brain.NeuralNetwork(); 

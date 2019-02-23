@@ -6,7 +6,7 @@ path = "harvard/full_set"
 new_path = "harvard/mini_set"
 total = len(os.listdir(path)) + len(os.listdir(path2))
 i = 1
-x = 400
+x = 200
 for filename in os.listdir(path):
     if (filename != ".DS_Store"):
         image = Image.open(path + "/" + filename)
