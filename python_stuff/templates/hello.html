@@ -57,9 +57,9 @@
             background: #99ff99;
         }
         #show {
-            width: 60%;
-            height: 60%;
-            top: 100px;
+            width: 95%;
+            height: 60vh;
+            /* top: 100px; */
         }
     </style>
     <body>
@@ -74,8 +74,8 @@
         <div id="bac1">
             <div id="scan">
                 <div id="scan_stuff">
-                    <input type="file" id="ima" onchange="previewFile()" accept="image/*"><br>
-                    <img src="" height="200" alt="Image preview..." id="show">
+                    <input type="file" id="ima" accept="image/*"><br><br>
+                    <img src="" height="200" id="show">
                 </div>
             </div>
             <button id="scanit">Scan it!</button>
@@ -93,6 +93,8 @@
             $("#scanit").hide();
         });
         let ok = document.getElementById("ima");
+        let fi;
+        let urrl;
         ok.addEventListener("change", () => {
             let preview = document.getElementById("show");
             let file = document.getElementById("ima").files[0];
@@ -100,13 +102,20 @@
             let reader = new FileReader();
             reader.addEventListener("load", function () {
                 preview.src = reader.result;
+                urrl = reader.result;
                 $("#scanit").fadeIn();
             }, false);
 
             if (file) {
                 reader.readAsDataURL(file);
             }
+            fi = file;
         });
+        const scani = document.getElementById("scanit");
+        scani.addEventListener("click", () => {
+            $.post("inpu", urrl);
+            event.preventDefault();
+        })
 
         // Initial function;
         const init = () => {
