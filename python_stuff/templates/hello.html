@@ -1,6 +1,119 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        html {
+            font-family: "Times New Roman";
+        }
+        #bac, #ano, #ano1, #bac1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100vh;
+        }
+        #ano, #ano1 {
+            background: purple;
+            opacity: 0.5;
+        }
+        #ano1 {
+            background: cyan;
+        }
+        #home {
+            font-family: "Times New Roman";
+            font-size: 35px;
+            letter-spacing: 15px;
+            text-align: center;
+            position: relative;
+            top: 25%;
+            color: white;
+        }
+        #go, #scanit {
+            position: relative;
+            background: pink;
+            width: 200px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #aa0000;
+            letter-spacing: 1px;
+        }
+        #scan {
+            position: relative;
+            text-align: center;
+            font-family: "Times New Roman";
+            background: pink;
+            left: 15%;
+            width: 70%;
+            top: 15%;
+            height: 70%;
+            border-radius: 20px;
+        }
+        #scanit {
+            position: fixed;
+            bottom: 3vh;
+            right: 3vw;
+            background: #99ff99;
+        }
+        #show {
+            width: 60%;
+            height: 60%;
+            top: 100px;
+        }
+    </style>
     <body>
-        <h1>Hello, there!</h1>
+        <div id="ano"></div>
+        <div id="ano1"></div>
+        <div id="bac">
+            <div id="home">
+                <h1 id="welcome">Your Online Medical Assistant</h1>
+                <button id="go">Get to the Scanner!</button>
+            </div>
+        </div>
+        <div id="bac1">
+            <div id="scan">
+                <div id="scan_stuff">
+                    <input type="file" id="ima" onchange="previewFile()" accept="image/*"><br>
+                    <img src="" height="200" alt="Image preview..." id="show">
+                </div>
+            </div>
+            <button id="scanit">Scan it!</button>
+        </div>
     </body>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // All the eventListeners;
+        const scan = document.getElementById("go");
+        scan.addEventListener("click", () => {
+            $("#home").fadeOut();
+            $("#bac1").fadeIn();
+            $("#ano1").fadeIn();
+            $("#scan").fadeIn();
+            $("#scanit").hide();
+        });
+        let ok = document.getElementById("ima");
+        ok.addEventListener("change", () => {
+            let preview = document.getElementById("show");
+            let file = document.getElementById("ima").files[0];
+            console.log(file);
+            let reader = new FileReader();
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+                $("#scanit").fadeIn();
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Initial function;
+        const init = () => {
+            $("#ano1").hide();
+            $("#scan").hide();
+            $("#bac1").hide();
+        }
+        init();
+    </script>
 </html>
